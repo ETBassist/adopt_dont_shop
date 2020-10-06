@@ -1,7 +1,6 @@
 <h1><%= @shelter.name %> Pets</h1>
 
 <% @pets.each do |pet| %>
-  <% require "pry";binding.pry %>
   <img src="<%= pet.image %>"/>
   <p>
     <%= pet.name %><br/>
