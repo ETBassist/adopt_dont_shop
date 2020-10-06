@@ -1,9 +1,6 @@
 <h1>Shelters Index</h1>
 
 <% @shelters.each do |shelter| %>
-  <h4><%= shelter.name %></h4>
-  <p><%= shelter.address %><br>
-  <%= shelter.city %><br>
-  <%= shelter.state %><br>
-  <%= shelter.zip %></p>
+  <h3><a href='/shelters/<%= shelter.id %>' title="See details"><%= shelter.name %></a></h3>
 <% end %>
+<a href='/shelters/new'>New Shelter</a>
