@@ -26,7 +26,7 @@ RSpec.describe "It can update and delete shelters", type: :feature do
     page.fill_in 'new_name', with: 'Place of Pastural Happyness'
 
     click_button('Update')
-    expect(current_path).to eq('/shelters')
+    expect(current_path).to eq("/shelters/#{@shelter.id}")
     expect(page).to have_content('Place of Pastural Happyness')
     expect(page).to have_content('12345')
   end
