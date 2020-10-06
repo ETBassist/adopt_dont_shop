@@ -22,10 +22,10 @@ RSpec.describe "shelter creation page", type: :feature do
     click_button("Create Shelter")
 
     expect(current_path).to eq('/shelters')
-    expect(page).to have_content("Happy pet house")
-    expect(page).to have_content("123 The Pets Lane")
-    expect(page).to have_content("Magical pet palace")
-    expect(page).to have_content("Bliss")
-    expect(page).to have_content("00100")
+    within('h4'){expect(page).to have_content("Happy pet house")}
+    within('p'){expect(page).to have_content("123 The Pets Lane")}
+    within('p'){expect(page).to have_content("Magical pet palace")}
+    within('p'){expect(page).to have_content("Bliss")}
+    within('p'){expect(page).to have_content("00100")}
   end
 end
