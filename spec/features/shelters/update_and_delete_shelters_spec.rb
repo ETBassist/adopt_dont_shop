@@ -6,6 +6,7 @@ RSpec.describe "It can update and delete shelters", type: :feature do
       name: "Happy Pastures Shelter",
       address: "The happiest place in the world",
       city: "Over the Rainbow",
+      state: "CA",
       zip: "12345"
     })
   end
@@ -27,5 +28,6 @@ RSpec.describe "It can update and delete shelters", type: :feature do
     click_button('Update')
     expect(current_path).to eq('/shelters')
     expect(page).to have_content('Place of Pastural Happyness')
+    expect(page).to have_content('12345')
   end
 end
