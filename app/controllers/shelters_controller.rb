@@ -35,6 +35,6 @@ class SheltersController < ApplicationController
       state: params[:new_state],
       zip: params[:new_zip]
     })
-    redirect_to '/shelters'
+    redirect_to "/shelters/#{shelter.id}"
   end
 end
