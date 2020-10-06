@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_192740) do
     t.string "name"
     t.string "approximate_age"
     t.string "sex"
+    t.string "adoption_status"
     t.string "shelter_id"
   end
 
