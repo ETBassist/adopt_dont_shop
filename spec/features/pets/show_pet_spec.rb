@@ -11,12 +11,14 @@ RSpec.describe "Pet Details", type: :feature do
       name: "Ms. Piggy",
       approximate_age: 2,
       sex: "Female",
-      shelter_id: shelter.id
+      shelter_id: shelter.id,
+      adoption_status: "Adoptable"
     })
 
     visit "/pets/#{pet.id}"
-    expect(page).to have_content("Ms. Piggy")
-    expect(page).to have_content("2")
-    expect(page).to have_content("Female")
+    expect(page).to have_content(pet.name)
+    expect(page).to have_content(pet.approximate_age)
+    expect(page).to have_content(pet.sex)
+    expect(page).to have_content(pet.adoption_status)
   end
 end
