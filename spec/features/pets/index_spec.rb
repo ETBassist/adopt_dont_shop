@@ -26,7 +26,7 @@ RSpec.describe "pets index page", type: :feature do
     expect(page).to have_content("1")
     expect(page).to have_content("Male")
     expect(page).to have_content("Happy Shelter")
-    find("https://filmdaily.co/wp-content/uploads/2020/04/cute-cat-videos-lede-1300x882.jpg")
+    find("img[src='https://filmdaily.co/wp-content/uploads/2020/04/cute-cat-videos-lede-1300x882.jpg']")
     expect(page).to have_content("Apollo Cat")
     expect(page).to have_content("2")
     expect(page).to have_content("Female")
