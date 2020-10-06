@@ -13,10 +13,10 @@ RSpec.describe "It can update and delete shelters", type: :feature do
   it "can visit a page to update a shelter" do
     visit "/shelters/#{@shelter.id}/edit"
 
-    expect(page).to have_field(:new_name)
-    expect(page).to have_field(:new_address)
-    expect(page).to have_field(:new_city)
-    expect(page).to have_field(:new_state)
-    expect(page).to have_field(:new_zip)
+    expect(page).to have_field('new_name', with: @shelter.name)
+    expect(page).to have_field('new_address', with: @shelter.address)
+    expect(page).to have_field('new_city', with: @shelter.city)
+    expect(page).to have_field('new_state', with: @shelter.state)
+    expect(page).to have_field('new_zip', with: @shelter.zip)
   end
 end
