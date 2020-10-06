@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_192740) do
   create_table "pets", force: :cascade do |t|
     t.string "image"
     t.string "name"
+    t.text "description"
     t.string "approximate_age"
     t.string "sex"
     t.string "adoption_status"
