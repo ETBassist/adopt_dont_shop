@@ -1,0 +1,14 @@
+<%= form_tag "/shelters", method: :patch do %>
+  <%= label_tag :new_name %>
+  <input type="text" id="new_name" value="<%= @shelter.name %>"><br>
+  <%= label_tag :new_address %>
+  <input type="text" id="new_address" value="<%= @shelter.address %>"><br>
+  <%= label_tag :new_city %>
+  <input type="text" id="new_city" value="<%= @shelter.city %>"><br>
+  <%= label_tag :new_state %>
+  <input type="text" id="new_state" value="<%= @shelter.state %>"><br>
+  <%= label_tag :new_zip %>
+  <input type="text" id="new_zip" value="<%= @shelter.zip %>"><br>
+
+  <button type="submit">Update</button>
+<% end %>
