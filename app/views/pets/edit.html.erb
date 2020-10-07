@@ -6,8 +6,10 @@
   <input type='text' name='new_name' value='<%= @pet.name %>'>
   <input type='text' name='new_description' value='<%= @pet.description %>'>
   <input type='text' name='new_approximate_age' value='<%= @pet.approximate_age %>'>
+  <input type='hidden' name='shelter_id' value='<%= @pet.shelter_id %>'>
   <select name='new_sex' value='<%= @pet.sex %>'>
     <option value="Female">Female</option>
     <option value="Male">Male</option>
   </select>
+  <button type="submit">Update Pet</button>
 </form> 
