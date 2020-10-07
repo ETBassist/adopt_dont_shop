@@ -31,7 +31,6 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    require "pry";binding.pry 
     pet.update({
       image: params[:new_image],
       name: params[:new_name],
@@ -41,7 +40,6 @@ class PetsController < ApplicationController
       shelter_id: params[:shelter_id],
       adoption_status: "adoptable"
     })
-    require "pry";binding.pry 
     redirect_to "/pets/#{pet.id}"
   end
 end
