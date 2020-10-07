@@ -1,6 +1,6 @@
 <h1>Create New Pet</h1>
 <form action="/shelters/<%= @shelter.id %>/pets" method="post">
-  <input type="hidden" name="authenticity token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="shelter_id" value="<%= @shelter.id %>">
   <input type="text" name="image"><br/>
   <input type="text" name="name"><br/>
@@ -10,5 +10,5 @@
     <option value="Female">Female</option>
     <option value="Female">Male</option>
   </select>
-  <button type='submit'>Create Pet</button>
+  <input type='submit' value="Create Pet"/>
 </form>

@@ -8,3 +8,8 @@
   <a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
   <%= link_to "Delete Pet", @pets, method: "delete" %>
 </p>
+<form action="/pets/<%= @pet.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Pet"/>
+</form>
