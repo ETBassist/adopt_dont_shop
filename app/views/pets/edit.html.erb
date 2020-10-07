@@ -1,0 +1,13 @@
+<form action='/pets/<%= @pet.id %>' method='post'>
+  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+  <input type='hidden' name='_method' value='PATCH'/>
+  <p>Edit Info For <%= @pet.name %></p>
+  <input type='text' name='new_image' value='<%= @pet.image %>'>
+  <input type='text' name='new_name' value='<%= @pet.name %>'>
+  <input type='text' name='new_description' value='<%= @pet.description %>'>
+  <input type='text' name='new_approximate_age' value='<%= @pet.approximate_age %>'>
+  <select name='new_sex' value='<%= @pet.sex %>'>
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+  </select>
+</form> 
