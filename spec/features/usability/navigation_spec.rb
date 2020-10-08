@@ -29,8 +29,8 @@ describe "User can navigate page using links" do
   it "can delete a shelter from the index by clicking a link" do
     visit '/shelters'
 
-    expect(page).to have_link("Delete #{@shelter.name}")
-    click_link("Delete #{@shelter.name}")
+    expect(page).to have_button("Delete #{@shelter.name}")
+    click_button("Delete #{@shelter.name}")
     
     expect(current_path).to eq('/shelters')
 
