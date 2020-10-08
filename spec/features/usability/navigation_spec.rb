@@ -49,8 +49,8 @@ describe "User can navigate page using links" do
   it "can edit a pet from the pets index page" do
     visit "/shelters/#{@shelter.id}/pets"
 
-    expect(page).to have_link("Edit Info for #{@pet.name}")
-    click_link("Edit Info for #{@pet.name}")
+    expect(page).to have_link("Edit Info")
+    click_link("Edit Info")
     
     expect(current_path).to eq("/pets/#{@pet.id}/edit")
   end
@@ -61,5 +61,13 @@ describe "User can navigate page using links" do
     click_link("#{@shelter.name}")
 
     expect(current_path).to eq("/shelters/#{@shelter.id}")
+  end
+
+  it "has a link to each pets show page on the pets index" do
+    visit "/shelters/#{@shelter.id}/pets"
+    expect(page).to have_link("#{@pet.name}")
+    click_link("#{@pet.name}")
+
+    expect(current_path).to eq("/pets/#{@pet.id}")
   end
 end
