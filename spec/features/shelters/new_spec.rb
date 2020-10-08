@@ -29,4 +29,15 @@ RSpec.describe "shelter creation page", type: :feature do
     expect(page).to have_content("Bliss")
     expect(page).to have_content("00100")
   end
+
+  describe "Nav bar links" do
+    it "has a nav link back to the shelters index page" do
+      visit '/shelters/new'
+
+      within('nav'){expect(page).to have_link("Shelters Index")}
+      within('nav'){click_link("Shelters Index")}
+
+      expect(current_path).to eq('/shelters')
+    end
+  end
 end
