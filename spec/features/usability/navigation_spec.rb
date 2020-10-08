@@ -36,4 +36,13 @@ describe "User can navigate page using links" do
 
     expect(page).to have_no_content(@shelter.name)
   end
+
+  it "can edit a pet from the pets index page" do
+    visit '/pets'
+
+    expect(page).to have_link("Edit Info for #{@pet.name}")
+    click_link("Edit Info for #{@pet.name}")
+    
+    expect(current_path).to eq("/pets/#{@pet.id}/edit")
+  end
 end
