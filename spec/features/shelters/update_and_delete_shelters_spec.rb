@@ -39,7 +39,7 @@ RSpec.describe "It can update and delete shelters", type: :feature do
   end
   
   it 'has a link back to the shelters index' do
-    visit "/shelters/#{@shelter.id}"
+    visit "/shelters/#{@shelter.id}/edit"
     expect(page).to have_link('Shelters Index')
 
     click_link('Shelters Index')
