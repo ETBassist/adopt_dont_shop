@@ -21,4 +21,13 @@ RSpec.describe "shelter index page", type: :feature do
 
     expect(current_path).to eq('/shelters')
   end
+
+  it 'has a nav link to the pets index page' do
+    visit '/shelters'
+
+    expect(page).to have_link('Pets Index')
+    click_link('Pets Index')
+
+    expect(current_path).to eq('/pets')
+  end
 end
