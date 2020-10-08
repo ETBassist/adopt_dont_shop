@@ -36,4 +36,14 @@ RSpec.describe "Create Pet", type: :feature do
     expect(page).to have_content("2")
     expect(page).to have_content("Female")
   end
+
+  it "has nav link to shelter index from new pets page" do
+    visit "/shelters/#{@shelter.id}/pets/new"
+
+    within('nav') do
+      expect(page).to have_link("Shelters Index")
+      click_link("Shelters Index")
+      expect(current_path).to eq("/shelters")
+    end
+  end
 end
