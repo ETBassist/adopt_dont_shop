@@ -79,7 +79,6 @@ RSpec.describe "pets index page", type: :feature do
 
     it 'has a link to a pets show page' do
       visit '/pets'
-      find_by_id("Show #{@pet3.name}").expect(page).to have_link("#{@pet3.name}")
       click_link("#{@pet3.name}")
       expect(current_path).to eq("/pets/#{@pet3.id}")
     end

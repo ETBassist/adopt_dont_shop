@@ -6,10 +6,12 @@
 
 <% @pets.each do |pet| %>
   <img src="<%= pet.image %>"/>
-  <p><%= pet.name %><br/>
-  <%= pet.approximate_age %><br/>
-  <%= pet.sex %><br/>
-  <%= pet.shelter.name %><br/></p>
+  <p>
+    <a href='/pets/<%= pet.id %>' id='Show <%= pet.name %>'><%= pet.name %></a><br/>
+    <%= pet.approximate_age %><br/>
+    <%= pet.sex %><br/>
+    <%= pet.shelter.name %><br/>
+  </p>
   <a href="/pets/<%= pet.id %>/edit">Edit Info for <%= pet.name %></a>
   <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
 <% end %>
