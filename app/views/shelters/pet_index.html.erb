@@ -11,6 +11,7 @@
     <%= pet.approximate_age %><br/>
     <%= pet.sex %><br/>
     <a href="/pets/<%= pet.id %>/edit">Edit Info</a>
+    <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
   </p>
 <% end %>
 <a href="/shelters/<%= @shelter.id %>/pets/new">Create Pet</a>
