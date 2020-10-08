@@ -71,4 +71,14 @@ RSpec.describe "Update and Delete Pets", type: :feature do
       expect(current_path).to eq("/shelters")
     end
   end
+
+  it "has navbar link to shelter index" do
+    visit "/pets/#{@pet.id}/edit"
+
+    within('nav') do
+      expect(page).to have_link("Pets Index")
+      click_link("Pet Index")
+      expect(current_path).to eq("/pets")
+    end
+  end
 end
