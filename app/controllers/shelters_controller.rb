@@ -45,6 +45,5 @@ class SheltersController < ApplicationController
 
   def pet_index
     @shelter = Shelter.find(params[:id])
-    @pets = Pet.where(shelter_id: params[:id])
   end
 end
