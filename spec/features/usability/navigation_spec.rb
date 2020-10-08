@@ -54,4 +54,12 @@ describe "User can navigate page using links" do
     
     expect(current_path).to eq("/pets/#{@pet.id}/edit")
   end
+  
+  it "has a link to the shelter everywhere you find that shelter's name" do
+    visit "/shelters/#{@shelter.id}/pets"
+    expect(page).to have_link("#{@shelter.name}")
+    click_link("#{@shelter.name}")
+
+    expect(current_path).to eq("/shelters/#{@shelter.id}")
+  end
 end
