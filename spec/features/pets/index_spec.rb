@@ -66,4 +66,14 @@ RSpec.describe "pets index page", type: :feature do
     expect(page).to have_no_content(@pet3.approximate_age)
     expect(page).to have_no_content(@shelter2.name)
   end
+
+  it "has nav link to shelter index from pets index" do
+    visit "/pets/"
+
+    within('nav') do
+      expect(page).to have_link("Shelters Index")
+      click_link("Shelters Index")
+      expect(current_path).to eq("/shelters")
+    end
+  end
 end
