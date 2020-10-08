@@ -91,7 +91,7 @@ RSpec.describe "pets index page", type: :feature do
     end
 
     it "has a nav link to shelter index from shelters pets index" do
-      visit "/shelters/#{@shelter.id}/pets"
+      visit "/shelters/#{@shelter1.id}/pets"
 
       within('nav') do
         expect(page).to have_link("Shelters Index")
