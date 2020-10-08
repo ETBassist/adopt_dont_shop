@@ -11,6 +11,7 @@
   <%= pet.sex %><br/>
   <%= pet.shelter.name %><br/></p>
   <a href="/pets/<%= pet.id %>/edit">Edit Info for <%= pet.name %></a>
+  <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
 <% end %>
 
 
