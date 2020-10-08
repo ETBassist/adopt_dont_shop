@@ -5,12 +5,11 @@
 <h1>All Pets</h1>
 
 <% @pets.each do |pet| %>
-  <% shelter = Shelter.find(pet.shelter_id) %>
   <img src="<%= pet.image %>"/>
   <p><%= pet.name %><br/>
   <%= pet.approximate_age %><br/>
   <%= pet.sex %><br/>
-  <%= shelter.name %><br/></p>
+  <%= pet.shelter.name %><br/></p>
   <a href="/pets/<%= pet.id %>/edit">Edit Info for <%= pet.name %></a>
 <% end %>
 
