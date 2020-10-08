@@ -13,14 +13,14 @@ class PetsController < ApplicationController
   end
 
   def create
-    Pet.create({
+    shelter = Shelter.find(params[:shelter_id])
+    shelter.pets.create({
       image: params[:image],
       name: params[:name],
       description: params[:description],
       approximate_age: params[:approximate_age],
       sex: params[:sex],
-      shelter_id: params[:shelter_id],
-      adoption_status: "adoptable"
+      adoption_status: "Adoptable"
     })
     redirect_to "/shelters/#{params[:shelter_id]}/pets"
   end
