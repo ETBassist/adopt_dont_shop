@@ -3,7 +3,7 @@
 <% @pets.each do |pet| %>
   <img src="<%= pet.image %>"/>
   <p>
-    <%= pet.name %><br/>
+    <a href="/pets/<%= pet.id %>"><%= pet.name %></a><br/>
     <%= pet.approximate_age %><br/>
     <%= pet.sex %><br/>
     <a href="/pets/<%= pet.id %>/edit">Edit Info</a>
