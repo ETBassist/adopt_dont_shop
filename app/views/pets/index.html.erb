@@ -2,18 +2,22 @@
   <a href="/shelters">Shelters Index</a>
   <a href="/pets">Pets Index</a>
 </nav>
-<h1>All Pets</h1>
+<header>
+  <h1>All Pets</h1>
+</header>
 
-<% @pets.each do |pet| %>
-  <img src="<%= pet.image %>"/>
-  <p>
-    <a href='/pets/<%= pet.id %>' id='Show <%= pet.name %>'><%= pet.name %></a><br/>
-    <%= pet.approximate_age %><br/>
-    <%= pet.sex %><br/>
-    <%= pet.shelter.name %><br/>
-  </p>
-  <a href="/pets/<%= pet.id %>/edit">Edit Info for <%= pet.name %></a>
-  <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
-<% end %>
-
-
+<body>
+  <% @pets.each do |pet| %>
+    <img src="<%= pet.image %>"/>
+    <div class="pet-info">
+    <p class="pet-info">
+      <a href='/pets/<%= pet.id %>' class="pet-name" id='Show <%= pet.name %>'><%= pet.name %></a>
+      <a href="/pets/<%= pet.id %>/edit">Edit Info for <%= pet.name %></a><br/>
+        Approximate Age: <%= pet.approximate_age %><br/>
+        Sex: <%= pet.sex %><br/>
+        Sheltered At: <%= pet.shelter.name %><br/>
+        <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), class: "delete-button", method: :delete %><br/>
+      </p>
+    </div>
+  <% end %>
+</body>
