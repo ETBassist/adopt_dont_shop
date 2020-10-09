@@ -7,10 +7,10 @@
 <% @shelter.pets.each do |pet| %>
   <img src="<%= pet.image %>"/>
   <p>
-    <a href="/pets/<%= pet.id %>"><%= pet.name %></a><br/>
+  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br/>
     <%= pet.approximate_age %><br/>
     <%= pet.sex %><br/>
-    <a href="/pets/<%= pet.id %>/edit">Edit Info</a>
+    <%= link_to "Edit Info", "/pets/#{pet.id}/edit" %>
     <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
   </p>
 <% end %>
