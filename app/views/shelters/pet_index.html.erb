@@ -2,7 +2,7 @@
   <%= link_to 'Shelters Index', '/shelters' %>
   <%= link_to 'Pets Index', '/pets' %>
 </nav>
-<h1><a href="/shelters/<%= @shelter.id %>"><%= @shelter.name %></a> Pets</h1>
+<h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %> Pets</h1>
 
 <% @shelter.pets.each do |pet| %>
   <img src="<%= pet.image %>"/>
