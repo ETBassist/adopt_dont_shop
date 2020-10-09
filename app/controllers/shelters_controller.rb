@@ -39,13 +39,11 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    shelter = Shelter.find(params[:id])
-    shelter.destroy
+    Shelter.destroy(params[:id])
     redirect_to '/shelters'
   end
 
   def pet_index
     @shelter = Shelter.find(params[:id])
-    @pets = Pet.where(shelter_id: params[:id])
   end
 end

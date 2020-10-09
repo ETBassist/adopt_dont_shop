@@ -33,8 +33,24 @@ RSpec.describe "It can update and delete shelters", type: :feature do
 
   it "can delete a shelter" do
     visit "/shelters/#{@shelter.id}"
-    click_link('Delete Shelter')
+    click_button('Delete Shelter')
     expect(current_path).to eq('/shelters')
     expect(page).to have_no_content('Happy Pastures Shelter')
+  end
+  
+  it 'has a link back to the shelters index' do
+    visit "/shelters/#{@shelter.id}/edit"
+    expect(page).to have_link('Shelters Index')
+
+    click_link('Shelters Index')
+    expect(current_path).to eq('/shelters')
+  end
+
+  it 'has a link back to the pets index' do
+    visit "/shelters/#{@shelter.id}/edit"
+    expect(page).to have_link('Pets Index')
+
+    click_link('Pets Index')
+    expect(current_path).to eq('/pets')
   end
 end
