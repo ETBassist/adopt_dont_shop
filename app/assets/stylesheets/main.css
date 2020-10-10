@@ -4,6 +4,7 @@
 
 nav {
   background-color: lightblue;
+  opacity: 0.8;
   height: 50px;
 }
 
@@ -15,9 +16,22 @@ nav a {
   line-height: 50px;
 }
 
+nav img {
+  float: right;
+  width: 2%;
+  height: 30%;
+}
+
 header {
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+body {
+  background-image: url("https://lh3.googleusercontent.com/proxy/VsI3nNDdxKWjukORv9P7C8yetRdpzlletB8npZTEiQI4WJg8M3JyCPTZ7CnnIFqSYdoi2fBa3_TFJlMNP6nhHoXtFBGfTkw");
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 
 img {
@@ -35,6 +49,16 @@ div.pet-info {
   position: relative;
   float: right;
   padding-right: 40%;
+}
+
+div.container {
+  width: 500px;
+  clear: both;
+}
+
+div input {
+  width: 100%;
+  clear: both;
 }
 
 .delete-button {

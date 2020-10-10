@@ -2,16 +2,23 @@
   <%= link_to 'Shelters Index', '/shelters' %>
   <%= link_to 'Pets Index', '/pets' %>
 </nav>
+<header>
 <h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %> Pets</h1>
+</header>
 
-<% @shelter.pets.each do |pet| %>
-  <img src="<%= pet.image %>"/>
-  <p>
-  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br/>
-    <%= pet.approximate_age %><br/>
-    <%= pet.sex %><br/>
-    <%= link_to "Edit Info", "/pets/#{pet.id}/edit" %>
-    <%= button_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
-  </p>
-<% end %>
-<%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
+<body>
+  <% @shelter.pets.each do |pet| %>
+    <img src="<%= pet.image %>"/>
+    <p>
+    Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br/>
+      Approximate Age: <%= pet.approximate_age %><br/>
+      Sex: <%= pet.sex %><br/>
+      <%= link_to "Edit Info", "/pets/#{pet.id}/edit" %>
+      <%= link_to "Delete #{pet.name}", delete_pet_path(pet.id), method: :delete %>
+    </p>
+  <% end %>
+  <p>There are <%= @shelter.pets.count %> pets at this shelter</p>
+</body>
+<footer>
+  <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
+</footer>

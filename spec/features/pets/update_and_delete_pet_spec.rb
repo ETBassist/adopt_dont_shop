@@ -31,18 +31,18 @@ RSpec.describe "Update and Delete Pets", type: :feature do
     click_link "Update Pet"
 
     expect(current_path).to eq("/pets/#{@pet.id}/edit")
-    expect(page).to have_field("new_image", with: @pet.image)
-    expect(page).to have_field("new_name", with: @pet.name)
-    expect(page).to have_field("new_description", with: @pet.description)
-    expect(page).to have_field("new_approximate_age", with: @pet.approximate_age)
-    expect(page).to have_field("new_sex", with: @pet.sex)
+    expect(page).to have_field("image", with: @pet.image)
+    expect(page).to have_field("name", with: @pet.name)
+    expect(page).to have_field("description", with: @pet.description)
+    expect(page).to have_field("approximate_age", with: @pet.approximate_age)
+    expect(page).to have_field("sex", with: @pet.sex)
   end
 
   it "can update a pet" do
     visit "pets/#{@pet.id}/edit"
 
-    fill_in :new_name, with: "Snickerdoodle"
-    fill_in :new_description, with: "A most adorable kitten, still wearing a hat but now also staring deeply into your soul"
+    fill_in :name, with: "Snickerdoodle"
+    fill_in :description, with: "A most adorable kitten, still wearing a hat but now also staring deeply into your soul"
     click_button "Update Pet"
 
     expect(current_path).to eq("/pets/#{@pet.id}")

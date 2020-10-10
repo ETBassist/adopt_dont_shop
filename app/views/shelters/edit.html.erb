@@ -2,22 +2,29 @@
   <%= link_to 'Shelters Index', '/shelters' %>
   <%= link_to 'Pets Index', '/pets' %>
 </nav>
-<%= form_tag("/shelters/#{ @shelter.id }", method: :patch) do %>
-  <p>Edit Details for <%= @shelter.name %></p>
-  <%= label_tag "new_name" %>
-  <%= text_field_tag :new_name, @shelter.name %>
+<header>
+  <h1>Edit Details for <%= link_to"#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
+</header>
 
-  <%= label_tag "new_address" %>
-  <%= text_field_tag :new_address, @shelter.address %>
-
-  <%= label_tag "new_city" %>
-  <%= text_field_tag :new_city, @shelter.city %>
-
-  <%= label_tag "new_state" %>
-  <%= text_field_tag :new_state, @shelter.state %>
-
-  <%= label_tag "new_zip" %>
-  <%= text_field_tag :new_zip, @shelter.zip %>
-
-  <%= submit_tag "Update" %>
-<% end %>
+<body>
+  <div class="container">
+    <%= form_tag("/shelters/#{ @shelter.id }", method: :patch) do %>
+      <%= label_tag "new_name" %>
+      <%= text_field_tag :new_name, @shelter.name %>
+      <br/>
+      <%= label_tag "new_address" %>
+      <%= text_field_tag :new_address, @shelter.address %>
+      <br/>
+      <%= label_tag "new_city" %>
+      <%= text_field_tag :new_city, @shelter.city %>
+      <br/>
+      <%= label_tag "new_state" %>
+      <%= text_field_tag :new_state, @shelter.state %>
+      <br/>
+      <%= label_tag "new_zip" %>
+      <%= text_field_tag :new_zip, @shelter.zip %>
+      <br/>
+      <%= submit_tag "Update" %>
+    <% end %>
+  </div>
+</body>

@@ -2,17 +2,27 @@
   <%= link_to 'Shelters Index', '/shelters' %>
   <%= link_to 'Pets Index', '/pets' %>
 </nav>
-<h1>Create New Pet</h1>
-<form action="/shelters/<%= @shelter.id %>/pets" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="shelter_id" value="<%= @shelter.id %>">
-  <input type="text" name="image"><br/>
-  <input type="text" name="name"><br/>
-  <input type="text" name="description"><br/>
-  <input type="text" name="approximate_age"><br/>
+<header>
+  <h1>Create New Pet</h1>
+</header>
+<%= form_tag("/shelters/#{ @shelter.id }/pets") do %>
+  <%= label_tag :image %>
+  <%= text_field_tag :image %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+
+  <%= label_tag :description %>
+  <%= text_field_tag :description %>
+
+  <%= label_tag :approximate_age %>
+  <%= text_field_tag :approximate_age %>
+
   <select id="sex" name="sex">
     <option value="Female">Female</option>
     <option value="Female">Male</option>
   </select>
-  <input type='submit' value="Create Pet"/>
-</form>
+
+  <%= submit_tag "Create Pet" %>
+<% end %>
+
