@@ -12,4 +12,4 @@
 <%= link_to 'Pets', "/shelters/#{ @shelter.id }/pets" %>
 <%= link_to 'Update Shelter', "/shelters/#{ @shelter.id }/edit" %>
 
-<%= button_to "Delete Shelter", delete_shelter_path(@shelter.id), method: :delete %>
+<%= link_to "Delete Shelter", delete_shelter_path(@shelter.id), method: :delete %>

@@ -53,7 +53,7 @@ RSpec.describe "Update and Delete Pets", type: :feature do
   it "can delete a pet" do
     visit "pets/#{@pet.id}"
 
-    click_button "Delete Pet"
+    click_link "Delete Pet"
     expect(current_path).to eq("/pets")
 
     expect(page).to have_no_content("Penny")

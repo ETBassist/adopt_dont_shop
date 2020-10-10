@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'shelters#index'
   get '/shelters', to: 'shelters#index'
   get '/shelters/new', to: 'shelters#new'
-  get '/shelters/:id', to: 'shelters#show'
+  get '/shelters/:id', to: 'shelters#show', as: :shelter
   post '/shelters', to: 'shelters#create'
   get '/shelters/:id/edit', to: 'shelters#edit'
   patch '/shelters/:id', to: 'shelters#update'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   get '/pets', to: 'pets#index'
   get '/shelters/:id/pets', to: 'shelters#pet_index'
-  get '/pets/:id', to: 'pets#show'
+  get '/pets/:id', to: 'pets#show', as: 'pet'
   get '/shelters/:id/pets/new', to: 'pets#new'
   post '/shelters/:id/pets', to: 'pets#create'
   get '/pets/:id/edit', to: 'pets#edit'
