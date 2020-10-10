@@ -18,4 +18,3 @@ Rails.application.routes.draw do
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy', as: :delete_pet
 end
-
