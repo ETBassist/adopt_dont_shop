@@ -12,7 +12,7 @@
   Description: <%= @pet.description %><br/>
   Approximate Age: <%= @pet.approximate_age %><br/>
   Sex: <%= @pet.sex %><br/>
-  Adoption Status: <%= @pet.adoption_status %><br/>
+  Adoption Status: <%= @pet.adoption_status.current_status %><br/>
   <a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
   <%= link_to "Delete Pet", @pet, method: "delete" %>
 </p>

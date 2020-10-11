@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './lib/assets/null_adoption'
 
 RSpec.describe "Pet Details", type: :feature do
   before :each do
@@ -13,7 +14,7 @@ RSpec.describe "Pet Details", type: :feature do
       approximate_age: 2,
       sex: "Female",
       shelter_id: shelter.id,
-      adoption_status: "Adoptable"
+      adoption_status: NullAdoption.new
     })
   end
 
@@ -23,7 +24,7 @@ RSpec.describe "Pet Details", type: :feature do
     expect(page).to have_content(@pet.description)
     expect(page).to have_content(@pet.approximate_age)
     expect(page).to have_content(@pet.sex)
-    expect(page).to have_content(@pet.adoption_status)
+    expect(page).to have_content(@pet.adoption_status.current_status)
   end
 
   it 'has a link in the nav bar to the shelters index page' do

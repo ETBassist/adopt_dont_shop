@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './lib/assets/null_adoption'
 
 RSpec.describe "pets index page", type: :feature do 
   before :each do
@@ -14,21 +15,24 @@ RSpec.describe "pets index page", type: :feature do
       image: "https://dogtime.com/assets/uploads/2018/10/puppies-cover.jpg",
       name: "Fluffy boi",
       approximate_age: 1,
-      sex: "Male"
+      sex: "Male",
+      adoption_status: NullAdoption.new
     })
 
     @pet2 = @shelter1.pets.create!({
       image: "https://filmdaily.co/wp-content/uploads/2020/04/cute-cat-videos-lede-1300x882.jpg",
       name: "Apollo Cat",
       approximate_age: 2,
-      sex: "Female"
+      sex: "Female",
+      adoption_status: NullAdoption.new
     })
 
     @pet3 = @shelter2.pets.create!({
       image: "https://static.boredpanda.com/blog/wp-content/uuuploads/cute-baby-animals/cute-baby-animals-10.jpg",
       name: "Cute Piggledy",
       approximate_age: 5,
-      sex: "Male"
+      sex: "Male",
+      adoption_status: NullAdoption.new
     })
   end
 

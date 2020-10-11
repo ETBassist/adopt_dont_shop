@@ -1,3 +1,5 @@
+require './lib/assets/null_adoption'
+
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
@@ -13,7 +15,14 @@ class PetsController < ApplicationController
 
   def create
     shelter = Shelter.find(params[:id])
-    shelter.pets.create(pet_params)
+    shelter.pets.create({
+      image: params[:image],
+      name: params[:name],
+      description: params[:description],
+      approximate_age: params[:approximate_age],
+      sex: params[:sex],
+      adoption_status: NullAdoption.new
+    })
     redirect_to "/shelters/#{shelter.id}/pets"
   end
 
@@ -28,8 +37,7 @@ class PetsController < ApplicationController
       name: params[:name],
       description: params[:description],
       approximate_age: params[:approximate_age],
-      sex: params[:sex],
-      adoption_status: "adoptable"
+      sex: params[:sex]
     })
     redirect_to "/pets/#{pet.id}"
   end
