@@ -14,7 +14,7 @@
   Sex: <%= @pet.sex %><br/>
   Adoption Status: <%= @pet.adoption_status.current_status %><br/>
   <a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
-  <%= link_to "Change to #{@pet.adoption_status.inverse_status}", "/pets/#{@pet.id}/adoptable", method: :patch %> 
+  <%= link_to "Change to #{@pet.adoption_status.inverse_status}", "/pets/#{@pet.id}/#{@pet.adoption_status.path_switch}", method: :patch %> 
   <%= link_to "Delete Pet", @pet, method: "delete" %>
 </p>
 </div>

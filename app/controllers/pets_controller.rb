@@ -57,6 +57,14 @@ class PetsController < ApplicationController
     redirect_to "/pets/#{pet.id}"
   end
 
+  def change_status_to_adoptable
+    pet = Pet.find(params[:id])
+    pet.update({
+      adoption_status: NullAdoption.new
+    })
+    redirect_to "/pets/#{pet.id}"
+  end
+
   private
 
   def pet_params

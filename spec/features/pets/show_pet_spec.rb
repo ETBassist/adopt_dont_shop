@@ -52,7 +52,7 @@ RSpec.describe "Pet Details", type: :feature do
     expect(page).to have_link('Change to Adoptable')
 
     click_link('Change to Adoptable')
-    expect(current_path).to eq("pets/#{@pet.id}")
+    expect(current_path).to eq("/pets/#{@pet.id}")
     expect(page).to have_link('Change to Adoption Pending')
   end
 end
