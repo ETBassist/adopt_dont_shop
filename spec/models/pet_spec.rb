@@ -33,4 +33,8 @@ describe Pet, type: :model do
   it "can get only pets that are adoptable" do
     expect(Pet.adoptable_only).to eq([@pet2, @pet3])
   end
+
+  it "can get only pets with pending adoptions" do
+    expect(Pet.pending_only).to eq([@pet1])
+  end
 end
