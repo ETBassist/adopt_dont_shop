@@ -3,7 +3,7 @@
 }
 
 nav {
-  background-color: lightblue;
+  background-color: DarkTurquoise;
   opacity: 0.8;
   height: 50px;
 }
@@ -32,6 +32,8 @@ body {
   background-image: url("https://lh3.googleusercontent.com/proxy/VsI3nNDdxKWjukORv9P7C8yetRdpzlletB8npZTEiQI4WJg8M3JyCPTZ7CnnIFqSYdoi2fBa3_TFJlMNP6nhHoXtFBGfTkw");
   background-repeat: no-repeat;
   background-position: right top;
+  background-color: LightCyan;
+  background-attachment: fixed;
 }
 
 img {
@@ -48,7 +50,16 @@ a.pet-name {
 div.pet-info {
   position: relative;
   float: right;
-  padding-right: 40%;
+  padding-right: 45%;
+}
+
+div.shelter-pet-info {
+  display: flex;
+  flex-direction: column;
+}
+
+div.shelter-pet-info img {
+  padding: 5px;
 }
 
 div.container {
