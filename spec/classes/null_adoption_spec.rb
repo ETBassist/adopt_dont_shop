@@ -16,4 +16,8 @@ RSpec.describe NullAdoption do
   it "returns a value for path switching" do
     expect(@null_adoption.path_switch).to eq("pending")
   end
+
+  it "returns an inverse of it's current status" do
+    expect(@null_adoption.inverse_status).to eq("Adoption Pending")
+  end
 end
