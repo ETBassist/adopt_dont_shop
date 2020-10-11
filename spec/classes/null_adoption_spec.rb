@@ -1,6 +1,6 @@
 require './lib/assets/null_adoption'
 
-Rspec.describe NullAdoption do
+RSpec.describe NullAdoption do
   before(:all) do
     @null_adoption = NullAdoption.new
   end
