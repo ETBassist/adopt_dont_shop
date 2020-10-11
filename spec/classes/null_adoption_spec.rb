@@ -8,4 +8,8 @@ RSpec.describe NullAdoption do
   it "exists" do
     expect(@null_adoption).to be_an_instance_of NullAdoption
   end
+
+  it "returns adoptable status" do
+    expect(@null_adoption.current_status).to eq("Adoptable")
+  end
 end
