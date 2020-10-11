@@ -6,4 +6,8 @@ class NullAdoption
   def path_switch
     "pending"
   end
+
+  def inverse_status
+    "Adoption Pending"
+  end
 end
