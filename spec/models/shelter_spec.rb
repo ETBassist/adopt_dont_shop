@@ -15,4 +15,18 @@ describe Shelter, type: :model do
     sorted = [shelter2, shelter1]
     expect(Shelter.by_name).to eq(sorted)
   end
+
+  it "should return shelters ordered by number of adoptable pets" do
+    shelter1 = Shelter.create!({name: "SFSPCA"})
+    shelter2 = Shelter.create!({name: "All Pets Palace"})
+    shelter1.pets.create({name: "Bunny Bun",
+                          adoption_status: PendingAdoption.new})
+    shelter1.pets.create({name: "Bunny Bun",
+                          adoption_status: PendingAdoption.new})
+    shelter2.pets.create({name: "Bunny Bun",
+                          adoption_status: NullAdoption.new})
+
+    expected = [shelter2, shelter1]
+    expect(Shelter.by_num_adoptable_pets).to eq(expected)
+  end
 end
