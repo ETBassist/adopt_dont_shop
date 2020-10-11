@@ -3,7 +3,7 @@ require './lib/assets/pending_adoption'
 
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all
+    @pets = Pet.by_status
   end
 
   def show
@@ -33,13 +33,7 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    pet.update({
-      image: params[:image],
-      name: params[:name],
-      description: params[:description],
-      approximate_age: params[:approximate_age],
-      sex: params[:sex]
-    })
+    pet.update(pet_params)
     redirect_to "/pets/#{pet.id}"
   end
 

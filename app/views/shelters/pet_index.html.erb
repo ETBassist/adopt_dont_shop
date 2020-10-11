@@ -9,7 +9,7 @@
 <body>
   <p><%= @shelter.pets.size %> pet(s) at this shelter</p>
   <div class="shelter-pet-info">
-    <% @shelter.pets.each do |pet| %>
+    <% @pets.each do |pet| %>
       <img src="<%= pet.image %>"/>
       <p>
       Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br/>
