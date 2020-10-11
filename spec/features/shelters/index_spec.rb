@@ -30,4 +30,12 @@ RSpec.describe "shelter index page", type: :feature do
 
     expect(current_path).to eq('/pets')
   end
+
+  it 'has a link to oranize shelters by name' do
+    visit '/shelters'
+
+    expect(page).to have_link('See Shelters Ordered by Name')
+    click_link('See Shelters Ordered by Name')
+    page.body.should =~ /SFSPCA.*Good Pups be here/
+  end
 end
