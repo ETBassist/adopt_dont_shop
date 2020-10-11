@@ -15,7 +15,7 @@
       <a href="/pets/<%= pet.id %>/edit">Edit Info for <%= pet.name %></a><br/>
         Approximate Age: <%= pet.approximate_age %><br/>
         Sex: <%= pet.sex %><br/>
-        Sheltered At: <%= pet.shelter.name %><br/>
+        Sheltered At: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %><br/>
         <%= link_to "Delete #{pet.name}", delete_pet_path(pet.id), class: "delete-button", method: :delete %><br/>
       </p>
     </div>
