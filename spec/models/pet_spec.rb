@@ -37,6 +37,6 @@ describe Pet, type: :model do
     pet3 = shelter2.pets.create!({name: "Buggy",
                                   adoption_status: NullAdoption.new})
 
-    expect(Pet.adoptable_only).to eq([pet3])
+    expect(Pet.adoptable_only).to eq([pet2, pet3])
   end
 end
