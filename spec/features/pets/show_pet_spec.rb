@@ -42,4 +42,13 @@ RSpec.describe "Pet Details", type: :feature do
     click_link('Pets Index')
     expect(current_path).to eq('/pets')
   end
+  
+  it 'has a link to change adoption status to pending' do
+    visit "/pets/#{@pet.id}"
+    expect(page).to have_link('Change to Adoption Pending')
+
+    click_link('Change to Adoption Pending')
+    expect(current_path).to eq("/pets/#{@pet.id}")
+    expect(page).to have_link('Change to Adoptable')
+  end
 end
