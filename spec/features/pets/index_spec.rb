@@ -1,5 +1,6 @@
 require 'rails_helper'
 require './lib/assets/null_adoption'
+require './lib/assets/pending_adoption'
 
 RSpec.describe "pets index page", type: :feature do 
   before :each do
@@ -33,6 +34,14 @@ RSpec.describe "pets index page", type: :feature do
       approximate_age: 5,
       sex: "Male",
       adoption_status: NullAdoption.new
+    })
+
+    @pet4 = @shelter2.pets.create!({
+      image: "https://images.pexels.com/photos/50577/hedgehog-animal-baby-cute-50577.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      name: "Sonic",
+      approximate_age: 1,
+      sex: "Male",
+      adoption_status: PendingAdoption.new
     })
   end
 
@@ -139,6 +148,18 @@ RSpec.describe "pets index page", type: :feature do
     it "has a count of pets at the shelter" do
       visit "/shelters/#{@shelter1.id}/pets"
       expect(page).to have_content("2 pet(s) at this shelter")
+    end
+
+    it "can filter out pets to only show adoptable pets" do
+      visit "/shelters/#{@shelter2.id}/pets"
+      expect(page).to have_link("Show Adoptable Pets")
+      click_link("Show Adoptable Pets")
+
+      expect(page).to have_xpath("//img[contains(@src, '#{@pet3.image}')]")
+      expect(page).to have_content(@pet3.name)
+
+      expect(page).to_not have_xpath("//img[contains(@src, '#{@pet4.image}')]")
+      expect(page).to_not have_content(@pet4.name)
     end
   end
 end
