@@ -3,7 +3,9 @@ require './lib/assets/pending_adoption'
 
 class PetsController < ApplicationController
   def index
-    if params[:adoptable] == "false"
+    if params[:adoptable] == "true"
+      @pets = Pet.adoptable_only
+    elsif params[:adoptable] == "false"
       @pets = Pet.pending_only
     else
       @pets = Pet.by_status
