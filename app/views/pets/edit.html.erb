@@ -1,19 +1,32 @@
 <nav>
-  <a href="/shelters">Shelters Index</a>
-  <a href="/pets">Pets Index</a>
+  <%= link_to "Shelters Index", '/shelters' %>
+  <%= link_to "Pets Index", '/pets' %>
 </nav>
-<form action='/pets/<%= @pet.id %>' method='post'>
-  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-  <input type='hidden' name='_method' value='PATCH'/>
-  <p>Edit Info For <%= @pet.name %></p>
-  <input type='text' name='new_image' value='<%= @pet.image %>'>
-  <input type='text' name='new_name' value='<%= @pet.name %>'>
-  <input type='text' name='new_description' value='<%= @pet.description %>'>
-  <input type='text' name='new_approximate_age' value='<%= @pet.approximate_age %>'>
-  <input type='hidden' name='shelter_id' value='<%= @pet.shelter_id %>'>
-  <select name='new_sex' value='<%= @pet.sex %>'>
-    <option value="Female">Female</option>
-    <option value="Male">Male</option>
-  </select>
-  <button type="submit">Update Pet</button>
-</form> 
+<header>
+  <p>Edit Info For <%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %></p>
+</header>
+<body>
+  <div class="container">
+    <%= form_tag("/pets/#{ @pet.id }", method: :patch) do %>
+      <%= label_tag "image" %>
+      <%= text_field_tag :image, @pet.image %>
+      <br>
+      <%= label_tag "name" %>
+      <%= text_field_tag :name, @pet.name %>
+      <br>
+      <%= label_tag "description" %>
+      <%= text_field_tag :description, @pet.description %>
+      <br> 
+      <%= label_tag "approximate_age" %>
+      <%= text_field_tag :approximate_age, @pet.approximate_age %>
+      <br>
+      <select name='sex' value='<%= @pet.sex %>'>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+      </select>
+      <br>
+
+      <%= submit_tag "Update Pet" %>
+    <% end %>
+  </div>
+</body>

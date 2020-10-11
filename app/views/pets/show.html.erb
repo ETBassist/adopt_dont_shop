@@ -1,6 +1,6 @@
 <nav>
-  <a href='/shelters'>Shelters Index</a>
-  <a href='/pets'>Pets Index</a>
+  <%= link_to 'Shelters Index', '/shelters' %>
+  <%= link_to 'Pets Index', '/pets' %>
 </nav>
 <header>
   <h1>Details For <%= @pet.name %></h1>
@@ -14,10 +14,6 @@
   Sex: <%= @pet.sex %><br/>
   Adoption Status: <%= @pet.adoption_status %><br/>
   <a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
+  <%= link_to "Delete Pet", @pet, method: "delete" %>
 </p>
 </div>
-<form action="/pets/<%= @pet.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Pet"/>
-</form>

@@ -1,15 +1,30 @@
 <nav>
-  <a href='/shelters'>Shelters Index</a>
-  <a href='/pets'>Pets Index</a>
+  <%= link_to 'Shelters Index', '/shelters' %>
+  <%= link_to 'Pets Index', '/pets' %>
 </nav>
-<form action='/shelters/<%= @shelter.id %>' method='post'>
-  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'/>
-  <input type='hidden' name='_method' value='PATCH' />
-  <p>Edit Details for <%= @shelter.name %></p>
-  <input type='text' name='new_name' value='<%= @shelter.name %>'<br/>
-  <input type='text' name='new_address' value='<%= @shelter.address %>'<br/>
-  <input type='text' name='new_city' value='<%= @shelter.city %>'<br/>
-  <input type='text' name='new_state' value='<%= @shelter.state %>'<br/>
-  <input type='text' name='new_zip' value='<%= @shelter.zip %>'<br/>
-  <button type='submit'>Update</button>
-</form>
+<header>
+  <h1>Edit Details for <%= link_to"#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
+</header>
+
+<body>
+  <div class="container">
+    <%= form_tag("/shelters/#{ @shelter.id }", method: :patch) do %>
+      <%= label_tag "new_name" %>
+      <%= text_field_tag :new_name, @shelter.name %>
+      <br/>
+      <%= label_tag "new_address" %>
+      <%= text_field_tag :new_address, @shelter.address %>
+      <br/>
+      <%= label_tag "new_city" %>
+      <%= text_field_tag :new_city, @shelter.city %>
+      <br/>
+      <%= label_tag "new_state" %>
+      <%= text_field_tag :new_state, @shelter.state %>
+      <br/>
+      <%= label_tag "new_zip" %>
+      <%= text_field_tag :new_zip, @shelter.zip %>
+      <br/>
+      <%= submit_tag "Update" %>
+    <% end %>
+  </div>
+</body>

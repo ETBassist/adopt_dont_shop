@@ -1,11 +1,10 @@
 <nav>
-  <a href='/shelters'>Shelters Index</a>
-  <a href='/pets'>Pets Index</a>
+  <%= link_to 'Shelters Index', '/shelters' %>
+  <%= link_to 'Pets Index', '/pets' %>
 </nav>
 <h1>Create Shelter</h1>
 
-<form action='/shelters' method='post'>
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%= form_tag('/shelters') do %>
   <%= label_tag :name %>
   <%= text_field_tag :name %>
 
@@ -21,5 +20,5 @@
   <%= label_tag :zip %>
   <%= text_field_tag :zip %>
 
-  <button type="submit">Create Shelter</button>
-</form>
+  <%= submit_tag "Create Shelter" %>
+<% end %>

@@ -70,8 +70,8 @@ RSpec.describe "pets index page", type: :feature do
     it "has a button to delete a pet from the pet index" do
       visit "/pets"
 
-      expect(page).to have_button("Delete #{@pet1.name}")
-      click_button("Delete #{@pet1.name}")
+      expect(page).to have_link("Delete #{@pet1.name}")
+      click_link("Delete #{@pet1.name}")
       expect(current_path).to eq("/pets")
 
       expect(page).to have_no_content("#{@pet1.name}")
@@ -125,11 +125,16 @@ RSpec.describe "pets index page", type: :feature do
     it "has a button to delete a pet from the shelters pet index" do
       visit "/shelters/#{@shelter1.id}/pets"
 
-      expect(page).to have_button("Delete #{@pet1.name}")
-      click_button("Delete #{@pet1.name}")
+      expect(page).to have_link("Delete #{@pet1.name}")
+      click_link("Delete #{@pet1.name}")
       expect(current_path).to eq("/pets")
 
       expect(page).to have_no_content("#{@pet1.name}")
+    end
+
+    it "has a count of pets at the shelter" do
+      visit "/shelters/#{@shelter1.id}/pets"
+      expect(page).to have_content("2 pet(s) at this shelter")
     end
   end
 end
