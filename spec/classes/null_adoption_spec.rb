@@ -12,4 +12,8 @@ RSpec.describe NullAdoption do
   it "returns adoptable status" do
     expect(@null_adoption.current_status).to eq("Adoptable")
   end
+
+  it "returns a value for path switching" do
+    expect(@null_adoption.path_switch).to eq("pending")
+  end
 end
