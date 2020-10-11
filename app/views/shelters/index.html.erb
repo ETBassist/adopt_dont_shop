@@ -13,9 +13,9 @@
     <%= link_to "Delete #{shelter.name}", delete_shelter_path(shelter.id), method: :delete %>
   <hr>
   <% end %>
+  <%= link_to "New Shelter", "/shelters/new" %>
 </body>
 <footer>
-  <%= link_to "New Shelter", "/shelters/new" %>
   <%= link_to 'See Shelters Ordered by Name', '/shelters?order=name' %>
   <%= link_to 'Shelters by Adoptable Pets', '/shelters?order=adoptable_pets' %>
 </footer>
