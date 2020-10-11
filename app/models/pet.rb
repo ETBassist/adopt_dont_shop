@@ -7,4 +7,8 @@ class Pet < ApplicationRecord
   def self.by_status
     Pet.all.sort_by { |pet| pet.adoption_status.current_status }
   end
+
+  def self.adoptable_only
+    Pet.all.select { |pet| pet.adoption_status.current_status == "Adoptable" }
+  end
 end
