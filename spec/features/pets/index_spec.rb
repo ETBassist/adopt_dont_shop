@@ -161,5 +161,16 @@ RSpec.describe "pets index page", type: :feature do
       expect(page).to_not have_xpath("//img[contains(@src, '#{@pet4.image}')]")
       expect(page).to_not have_content(@pet4.name)
     end
+    it "can filter out pets to show only adoption pending pets" do
+      visit "/shelters/#{@shelter2.id}/pets"
+      expect(page).to have_link("Show Pets with Pending Adoptions")
+      click_link("Show Pets with Pending Adoptions")
+
+      expect(page).to have_xpath("//img[contains(@src, '#{@pet4.image}')]")
+      expect(page).to have_content(@pet4.name)
+
+      expect(page).to_not have_xpath("//img[contains(@src, '#{@pet3.image}')]")
+      expect(page).to_not have_content(@pet3.name)
+    end
   end
 end
