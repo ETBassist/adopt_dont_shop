@@ -1,0 +1,2 @@
+class PendingAdoption
+end
