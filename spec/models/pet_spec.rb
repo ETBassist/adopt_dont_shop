@@ -26,4 +26,17 @@ describe Pet, type: :model do
     ordered_by_status = [pet2, pet1]
     expect(shelter.pets.by_status).to eq(ordered_by_status)
   end
+
+  it "can get only pets that are adoptable" do
+    shelter = Shelter.create!({name: "SFSPCA"})
+    shelter2 = Shelter.create!({name: "The Other Place"})
+    pet1 = shelter.pets.create!({name: "Benny",
+                       adoption_status: PendingAdoption.new})
+    pet2 = shelter.pets.create!({name: "Biggy",
+                       adoption_status: NullAdoption.new})
+    pet3 = shelter2.pets.create!({name: "Buggy",
+                                  adoption_status: NullAdoption.new})
+
+    expect(Pet.adoptable_only).to eq([pet3])
+  end
 end
