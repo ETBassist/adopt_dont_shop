@@ -1,4 +1,5 @@
 require './lib/assets/null_adoption'
+require './lib/assets/pending_adoption'
 
 class PetsController < ApplicationController
   def index
@@ -46,6 +47,14 @@ class PetsController < ApplicationController
     pet = Pet.find(params[:id])
     pet.destroy 
     redirect_to '/pets'
+  end
+
+  def change_status_to_pending
+    pet = Pet.find(params[:id])
+    pet.update({
+      adoption_status: PendingAdoption.new
+    })
+    redirect_to "/pets/#{pet.id}"
   end
 
   private
