@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './lib/assets/null_adoption'
 
 describe "User can navigate page using links" do
   before :each do
@@ -13,7 +14,7 @@ describe "User can navigate page using links" do
       approximate_age: 2,
       sex: "Female",
       shelter_id: @shelter.id,
-      adoption_status: "Adoptable"
+      adoption_status: NullAdoption.new
     })
   end
 

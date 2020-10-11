@@ -16,12 +16,6 @@ nav a {
   line-height: 50px;
 }
 
-nav img {
-  float: right;
-  width: 2%;
-  height: 30%;
-}
-
 header {
   font-weight: bold;
   font-size: 1.5em;
@@ -45,12 +39,6 @@ a.pet-name {
   font-size: 1.2em;
   font-weight: bold;
   padding-right: 10px;
-}
-
-div.pet-info {
-  position: relative;
-  float: right;
-  padding-right: 45%;
 }
 
 div.shelter-pet-info {

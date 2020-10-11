@@ -1,6 +1,12 @@
 class SheltersController < ApplicationController
   def index
-    @shelters = Shelter.all
+    if params[:order] == "name"
+      @shelters = Shelter.by_name
+    elsif params[:order] == "adoptable_pets"
+      @shelters = Shelter.by_num_adoptable_pets
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show
@@ -38,6 +44,13 @@ class SheltersController < ApplicationController
 
   def pet_index
     @shelter = Shelter.find(params[:id])
+    if params[:adoptable] == "true"
+      @pets = @shelter.pets.adoptable_only
+    elsif params[:adoptable] == "false"
+      @pets = @shelter.pets.pending_only
+    else
+      @pets = @shelter.pets.by_status
+    end
   end
 
   private

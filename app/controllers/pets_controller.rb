@@ -1,6 +1,15 @@
+require './lib/assets/null_adoption'
+require './lib/assets/pending_adoption'
+
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all
+    if params[:adoptable] == "true"
+      @pets = Pet.adoptable_only
+    elsif params[:adoptable] == "false"
+      @pets = Pet.pending_only
+    else
+      @pets = Pet.by_status
+    end
   end
 
   def show
@@ -13,7 +22,14 @@ class PetsController < ApplicationController
 
   def create
     shelter = Shelter.find(params[:id])
-    shelter.pets.create(pet_params)
+    shelter.pets.create({
+      image: params[:image],
+      name: params[:name],
+      description: params[:description],
+      approximate_age: params[:approximate_age],
+      sex: params[:sex],
+      adoption_status: NullAdoption.new
+    })
     redirect_to "/shelters/#{shelter.id}/pets"
   end
 
@@ -23,14 +39,7 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    pet.update({
-      image: params[:image],
-      name: params[:name],
-      description: params[:description],
-      approximate_age: params[:approximate_age],
-      sex: params[:sex],
-      adoption_status: "adoptable"
-    })
+    pet.update(pet_params)
     redirect_to "/pets/#{pet.id}"
   end
 
@@ -38,6 +47,22 @@ class PetsController < ApplicationController
     pet = Pet.find(params[:id])
     pet.destroy 
     redirect_to '/pets'
+  end
+
+  def change_status_to_pending
+    pet = Pet.find(params[:id])
+    pet.update({
+      adoption_status: PendingAdoption.new
+    })
+    redirect_to "/pets/#{pet.id}"
+  end
+
+  def change_status_to_adoptable
+    pet = Pet.find(params[:id])
+    pet.update({
+      adoption_status: NullAdoption.new
+    })
+    redirect_to "/pets/#{pet.id}"
   end
 
   private

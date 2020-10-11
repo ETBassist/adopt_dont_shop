@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './lib/assets/null_adoption'
 
 RSpec.describe "Update and Delete Pets", type: :feature do
   before :each do
@@ -12,7 +13,8 @@ RSpec.describe "Update and Delete Pets", type: :feature do
       description: "The cutest little kittne wearing the cutest little hat",
       approximate_age: "2",
       sex: "Female",
-      shelter_id: @shelter.id
+      shelter_id: @shelter.id,
+      adoption_status: NullAdoption.new
     })
     
     @pet2 = Pet.create!({
@@ -21,7 +23,8 @@ RSpec.describe "Update and Delete Pets", type: :feature do
       description: "Just the tiniest ball of fluffy",
       approximate_age: "5",
       sex: "Male",
-      shelter_id: @shelter.id
+      shelter_id: @shelter.id,
+      adoption_status: NullAdoption.new
     })
   end
 
