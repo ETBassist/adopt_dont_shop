@@ -11,4 +11,8 @@ class Pet < ApplicationRecord
   def self.adoptable_only
     Pet.all.select { |pet| pet.adoption_status.current_status == "Adoptable" }
   end
+
+  def self.pending_only
+    Pet.all.select { |pet| pet.adoption_status.current_status == "Adoption Pending" }
+  end
 end
