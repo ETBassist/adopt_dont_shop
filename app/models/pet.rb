@@ -3,4 +3,8 @@ class Pet < ApplicationRecord
 
   validates_presence_of :name
   serialize :adoption_status
+
+  def self.by_status
+    Pet.all.sort_by { |pet| pet.adoption_status.current_status }
+  end
 end
