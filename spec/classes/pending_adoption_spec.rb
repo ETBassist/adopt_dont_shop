@@ -16,4 +16,8 @@ RSpec.describe PendingAdoption do
   it "returns a file path helper" do
     expect(@pending_adoption.path_switch).to eq("adoptable")
   end
+
+  it "returns the inverse of its current status" do
+    expect(@pending_adoption.inverse_status).to eq("Adoptable")
+  end
 end
