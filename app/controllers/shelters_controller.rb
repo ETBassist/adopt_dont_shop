@@ -44,7 +44,11 @@ class SheltersController < ApplicationController
 
   def pet_index
     @shelter = Shelter.find(params[:id])
-    @pets = @shelter.pets.by_status
+    if params[:adoptable] == "true"
+      @pets = @shelter.pets.adoptable_only
+    else
+      @pets = @shelter.pets.by_status
+    end
   end
 
   private
