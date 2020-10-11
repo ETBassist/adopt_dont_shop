@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
   belongs_to :shelter
 
-  validates_presence_of :name
+  validates_presence_of :name, :adoption_status
   serialize :adoption_status
 
   def self.by_status
@@ -9,10 +9,10 @@ class Pet < ApplicationRecord
   end
 
   def self.adoptable_only
-    Pet.all.select { |pet| pet.adoption_status.current_status == "Adoptable" }
+    Pet.where("adoption_status like ?", "%NullAdoption%")
   end
 
   def self.pending_only
-    Pet.all.select { |pet| pet.adoption_status.current_status == "Adoption Pending" }
+    Pet.where("adoption_status like ?", "%Pending%")
   end
 end
