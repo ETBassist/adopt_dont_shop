@@ -3,13 +3,17 @@
 }
 
 nav {
-  background-color: DarkTurquoise;
-  opacity: 0.8;
+  background-color: #393D3F;
   height: 50px;
+  width: 100%;
+}
+
+a:hover {
+  color: #FF5D73
 }
 
 nav a {
-  color: white;
+  color: #FFFFFF;
   font-size: 1em;
   font-weight: bold;
   padding: 15px;
@@ -22,17 +26,13 @@ header {
   text-align: center;
 }
 
-body {
-  background-image: url("https://lh3.googleusercontent.com/proxy/VsI3nNDdxKWjukORv9P7C8yetRdpzlletB8npZTEiQI4WJg8M3JyCPTZ7CnnIFqSYdoi2fBa3_TFJlMNP6nhHoXtFBGfTkw");
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-color: LightCyan;
-  background-attachment: fixed;
-}
-
 img {
   height: 30%;
   width: 30%;
+}
+
+body {
+  padding-bottom: 55px;
 }
 
 a.pet-name {
@@ -60,5 +60,18 @@ div input {
   clear: both;
 }
 
-.delete-button {
+footer {
+  background-color: #393D3F;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+footer a {
+  color: #FFFFFF;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 50px;
+  padding: 15px;
 }
