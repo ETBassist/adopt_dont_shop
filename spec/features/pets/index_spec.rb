@@ -95,6 +95,18 @@ RSpec.describe "pets index page", type: :feature do
       click_link("#{@pet3.name}")
       expect(current_path).to eq("/pets/#{@pet3.id}")
     end
+
+    it "has a link to show only pets with pending adoptions on the pets index" do
+      visit "/pets"
+      expect(page).to have_link("Show Pets with Pending Adoptions")
+      click_link("Show Pets with Pending Adoptions")
+
+      expect(page).to have_xpath("//img[contains(@src, '#{@pet4.image}')]")
+      expect(page).to have_content(@pet4.name)
+
+      expect(page).to_not have_xpath("//img[contains(@src, '#{@pet3.image}')]")
+      expect(page).to_not have_content(@pet3.name)
+    end
   end
 
   describe "Shelters Pet Index" do
